@@ -1,1 +1,1 @@
-# c_data_struct
+# data structure and algorithm written by C Language.
