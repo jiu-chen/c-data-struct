@@ -4,8 +4,8 @@
 // # -> 1 -> 2 -> 3 -> NULL
 int GetElem(LinkList *L, int i, ElemType *elem)
 {
-    LinkList *p;
-    p = L->Next;
+    LinkList *p; //p指向头节点
+    p = L->Next; //p指向首元节点
     int j = 1;
     while (p && j < i)
     {
