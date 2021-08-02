@@ -1,7 +1,7 @@
 #ifndef SEQUENCELIST_H
 #define SEQUENCELIST_H
 
-#include "../common/status.h"
+#include "../../Introduction/Status.h"
 #include <stdlib.h>
 #include <stdio.h>
 

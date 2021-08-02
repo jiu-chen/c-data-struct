@@ -1,6 +1,3 @@
-#ifndef SEQUENCELIST_C
-#define SEQUENCELIST_C
-
 #include "SequenceList.h"
 
 #define TRUE 1
@@ -26,7 +23,9 @@ void ClearList_Sq(SqList *L)
 // 销毁顺序表
 void DestroyList_Sq(SqList *L)
 {
-    L->elem = NULL;
+    free((*L).elem);
+
+    L->elem = (LElemType_Sq *)NULL;
     L->listsize = 0;
     L->length = 0;
 }
@@ -163,4 +162,3 @@ Status ListTraverse_Sq(SqList L, void(Visit)(LElemType_Sq))
     }
     return OK;
 }
-#endif
