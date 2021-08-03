@@ -101,18 +101,19 @@ Status NextElem_Sq(SqList L, LElemType_Sq cur_e, LElemType_Sq *next_e)
 //i表示插入的位置，在第i个元素位置插入，从1开始计数
 // 1 2 4 8
 //在第三个元素位置插入3，变为1 2 3 4 8
-// 在第5个元素位置插入22，变为1 2 4 8 22
+// 在第5个元素位置插入22，变为1 2 3 4 8 22
 Status ListInsert_Sq(SqList *L, int i, LElemType_Sq e)
 {
     LElemType_Sq *newbase;
     LElemType_Sq *p, *q;
-    if (i < 1 || i > L->length + 1) // i值不合法
+    // 1 2 3 4，length=4, i的位置最大值只能是5，因为线性表是连续空间存储
+    if (i < 1 || i > L->length + 1) // i值不合法，插入的
     {
         return ERROR;
     }
-    if (L->length > L->listsize)
+    if (L->length >= L->listsize)
     {
-        newbase = (LElemType_Sq *)realloc(L->elem, (L->listsize = LISTINCREMENT) * sizeof(LElemType_Sq));
+        newbase = (LElemType_Sq *)realloc(L->elem, (L->listsize + LISTINCREMENT) * sizeof(LElemType_Sq));
         if (!newbase)
             exit(OVERFLOW);
         L->elem = newbase;
